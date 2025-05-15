@@ -10,7 +10,7 @@
 public class Money_Changer_GUI extends javax.swing.JFrame {
 
     /**
-     * Creates new form Money_Changer_GUI
+     * Creates new form Money_Changer_GUI koawowkakoawok
      */
     public Money_Changer_GUI() {
         initComponents();
