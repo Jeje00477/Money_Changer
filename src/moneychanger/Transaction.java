@@ -28,7 +28,7 @@ public class Transaction {
         this.currencyTo = currencyTo;
         this.amountFrom = amountFrom;
         this.rateUsed = rateUsed;
-        this.amountTo = amountFrom * rateUsed;
+        this.amountTo = amountFrom * rateUsed;  // dihitung otomatis
         this.tanggal = tanggal;
     }
 
