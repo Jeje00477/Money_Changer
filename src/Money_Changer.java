@@ -14,11 +14,11 @@ public class Money_Changer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Register rg = new Register ();
+        Login rg = new Login ();
         rg.setVisible(true);
         rg.pack();
         rg.setLocationRelativeTo(null);
-        rg.setDefaultCloseOperation(Register.EXIT_ON_CLOSE);
+        rg.setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
     }
     
 }

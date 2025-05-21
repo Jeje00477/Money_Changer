@@ -268,7 +268,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_Register;
     private javax.swing.JLabel jLabel1;
