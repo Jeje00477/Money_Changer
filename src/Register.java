@@ -217,6 +217,7 @@ public class Register extends javax.swing.JFrame {
             lg.pack();
             lg.setLocationRelativeTo(null);
             lg.setDefaultCloseOperation(Register.EXIT_ON_CLOSE);
+            dispose();
         }
         else{
             jLabel7.setText("Passwordnya tidak sama teman!");
