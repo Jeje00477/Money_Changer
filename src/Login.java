@@ -223,7 +223,8 @@ public class Login extends javax.swing.JFrame {
             MC.setLocationRelativeTo(null);
             MC.setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
             dispose();
-        }else{
+        }
+            else{
             jLabel8.setText("Username atau Password salah!");
         }
         

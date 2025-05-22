@@ -10,14 +10,18 @@ import javax.swing.JOptionPane;
  *
  * @author jeje
  */
-public class Money_Changer_GUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Money_Changer_GUI 
-     */
+
+public class Money_Changer_GUI extends javax.swing.JFrame {
+private javax.swing.JComboBox<String> comboCurrency;
+private static Money_Changer_GUI instance;
+private CurrencyConverter CC;
+
     public Money_Changer_GUI() {
         initComponents();
+        instance = this;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form. 
@@ -37,6 +41,7 @@ public class Money_Changer_GUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         txtto = new javax.swing.JComboBox<>();
         txtfrom = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -78,6 +83,13 @@ public class Money_Changer_GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Admin");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,7 +109,9 @@ public class Money_Changer_GUI extends javax.swing.JFrame {
                             .addComponent(txtamount, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                             .addComponent(txtfrom, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,7 +123,6 @@ public class Money_Changer_GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -122,7 +135,9 @@ public class Money_Changer_GUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(txtto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,29 +150,36 @@ public class Money_Changer_GUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
                                         
-        Double tot; 
-        Double amount = Double.parseDouble(txtamount.getText());
+//        Double tot; 
+//        Double amount = Double.parseDouble(txtamount.getText());
+//        
+//        if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "USD")
+//        {
+//            tot = amount * 0.000061;
+//            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
+//        }
+//       else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "YEN")
+//        {
+//            tot = amount * 0.0088;
+//            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
+//        }
+//        else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "RINGGIT")
+//        {
+//            tot = amount * 0.00026;
+//            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
+//        }
+//        else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "EURO")
+//        {
+//            tot = amount * 0.000054;
+//            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
+//        }
         
-        if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "USD")
-        {
-            tot = amount * 0.000061;
-            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
-        }
-       else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "YEN")
-        {
-            tot = amount * 0.0088;
-            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
-        }
-        else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "RINGGIT")
-        {
-            tot = amount * 0.00026;
-            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
-        }
-        else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "EURO")
-        {
-            tot = amount * 0.000054;
-            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
-        }
+        CurrencyConverter CC = CurrencyConverter.getInstance();
+        double amount = Double.parseDouble(txtamount.getText());
+        String from = txtfrom.getSelectedItem().toString();
+        String to = txtto.getSelectedItem().toString();
+
+        CC.convert(amount, from, to);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -168,6 +190,26 @@ public class Money_Changer_GUI extends javax.swing.JFrame {
     private void txtfromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfromActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfromActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String inputPassword = JOptionPane.showInputDialog(this, "Enter admin password:");
+    
+    if (inputPassword != null && inputPassword.equals("admin123")) { // Ganti dengan password kamu
+        Admin admin = new Admin(this);
+        admin.setVisible(true);
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Incorrect password!", "Access Denied", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public javax.swing.JComboBox<String> getTxtTo() {
+        return txtto;
+    }
+     public static Money_Changer_GUI getInstance() {
+        return instance;
+    }
 
     /**
      * @param args the command line arguments
@@ -206,6 +248,7 @@ public class Money_Changer_GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
