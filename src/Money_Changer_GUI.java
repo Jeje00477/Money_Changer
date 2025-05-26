@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 
 public class Money_Changer_GUI extends javax.swing.JFrame {
-private javax.swing.JComboBox<String> comboCurrency;
+//private javax.swing.JComboBox<String> comboCurrency;
 private static Money_Changer_GUI instance;
 private CurrencyConverter CC;
 
@@ -222,7 +222,7 @@ private CurrencyConverter CC;
         // TODO add your handling code here:
         String inputPassword = JOptionPane.showInputDialog(this, "Enter admin password:");
 
-        if (inputPassword != null && inputPassword.equals("admin123")) { // Ganti dengan password kamu
+        if (inputPassword != null && inputPassword.equals("admin123")) {
             Admin admin = new Admin(this);
             admin.setVisible(true);
             this.dispose();
@@ -241,36 +241,16 @@ private CurrencyConverter CC;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        //        Double tot;
-        //        Double amount = Double.parseDouble(txtamount.getText());
-        //
-        //        if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "USD")
-        //        {
-            //            tot = amount * 0.000061;
-            //            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
-            //        }
-        //       else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "YEN")
-        //        {
-            //            tot = amount * 0.0088;
-            //            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
-            //        }
-        //        else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "RINGGIT")
-        //        {
-            //            tot = amount * 0.00026;
-            //            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
-            //        }
-        //        else  if(txtfrom.getSelectedItem().toString() == "IDR" && txtto.getSelectedItem().toString() == "EURO")
-        //        {
-            //            tot = amount * 0.000054;
-            //            JOptionPane.showMessageDialog(this, "Your Amount will be " + tot.toString());
-            //        }
-
         CurrencyConverter CC = CurrencyConverter.getInstance();
-        double amount = Double.parseDouble(txtamount.getText());
-        String from = txtfrom.getSelectedItem().toString();
-        String to = txtto.getSelectedItem().toString();
+        try{
+            double amount = Double.parseDouble(txtamount.getText());
+            String from = txtfrom.getSelectedItem().toString();
+            String to = txtto.getSelectedItem().toString();
 
-        CC.convert(amount, from, to);
+            CC.convert(amount, from, to);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Enter Numbers!", "Wrong Input", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtamountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtamountActionPerformed

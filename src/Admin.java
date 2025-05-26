@@ -197,53 +197,55 @@ public class Admin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    Money_Changer_GUI gui = Money_Changer_GUI.getInstance();
-    CurrencyConverter CC = CurrencyConverter.getInstance();
-    String removeCurrency = jTextField1.getText().toUpperCase();
-    if (removeCurrency.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Isi nama mata uang yang ingin dihapus!");
-        return;
-    }
+        Money_Changer_GUI gui = Money_Changer_GUI.getInstance();
+        CurrencyConverter CC = CurrencyConverter.getInstance();
+        String removeCurrency = jTextField1.getText().toUpperCase();
+        if (removeCurrency.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fill in the currency first");
+            return;
+        }
 
-    if (gui != null) {
-        javax.swing.JComboBox<String> combo = gui.getTxtTo();
-        boolean found = false;
-        CC.removeCur(removeCurrency);
-        for (int i = 0; i < combo.getItemCount(); i++) {
-            if (combo.getItemAt(i).equalsIgnoreCase(removeCurrency)) {
-                combo.removeItemAt(i);
-                JOptionPane.showMessageDialog(this, "Mata uang '" + removeCurrency + "' berhasil dihapus!");
-                found = true;
-                break;
+        if (gui != null) {
+            javax.swing.JComboBox<String> combo = gui.getTxtTo();
+            boolean found = false;
+            CC.removeCur(removeCurrency);
+            for (int i = 0; i < combo.getItemCount(); i++) {
+                if (combo.getItemAt(i).equalsIgnoreCase(removeCurrency)) {
+                    combo.removeItemAt(i);
+                    JOptionPane.showMessageDialog(this, "'" + removeCurrency + "' currency successfully removed");
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                JOptionPane.showMessageDialog(this, "'" + removeCurrency + "' currency not found");
             }
         }
-
-        if (!found) {
-            JOptionPane.showMessageDialog(this, "Mata uang '" + removeCurrency + "' tidak ditemukan!");
-        }
-    } else {
-        JOptionPane.showMessageDialog(this, "Money Changer GUI tidak ditemukan!");
-    }
+//      else {
+//            JOptionPane.showMessageDialog(this, "Money Changer GUI tidak ditemukan!");
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    Money_Changer_GUI gui = Money_Changer_GUI.getInstance();
-    CurrencyConverter CC = CurrencyConverter.getInstance();
-    String newCurrency = jTextField1.getText().toUpperCase();
-    double newRate = Double.parseDouble(jTextField2.getText());
-    if (newCurrency.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Isi nama mata uang terlebih dahulu!");
-        return;
-    }
+        Money_Changer_GUI gui = Money_Changer_GUI.getInstance();
+        CurrencyConverter CC = CurrencyConverter.getInstance();
+        String newCurrency = jTextField1.getText().toUpperCase();
+        double newRate = Double.parseDouble(jTextField2.getText());
+        if (newCurrency.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fill in the currency first");
+            return;
+        }
 
-    if (gui != null) {
-        gui.getTxtTo().addItem(newCurrency);
-        CC.addCurr(newCurrency,newRate);
-        JOptionPane.showMessageDialog(this, "Mata uang '" + newCurrency + "' berhasil ditambahkan!");
-    } else {
-        JOptionPane.showMessageDialog(this, "Money Changer GUI tidak ditemukan!");
-    }
+        if (gui != null) {
+            gui.getTxtTo().addItem(newCurrency);
+            CC.addCurr(newCurrency,newRate);
+            JOptionPane.showMessageDialog(this, "'" + newCurrency + "' currency successfully added");
+        }
+//      else {
+//            JOptionPane.showMessageDialog(this, "Money Changer GUI tidak ditemukan!");
+//        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

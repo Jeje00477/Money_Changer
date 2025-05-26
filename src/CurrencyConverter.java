@@ -43,12 +43,12 @@ public class CurrencyConverter{
                 rate.remove(i);
                 return;
             }
-        } System.out.println("Mata uang tidak ditemukan: "+cur);
+        } System.out.println("Currency not found: "+cur);
     }
     
     public void convert(double amount, String fromCurrency, String toCurrency) {
         if (!fromCurrency.equalsIgnoreCase("IDR")) {
-            JOptionPane.showMessageDialog(null, "Saat ini hanya mendukung konversi dari IDR.");
+            JOptionPane.showMessageDialog(null, "Currently only supports conversion from IDR");
             return;
         }
 
@@ -60,6 +60,6 @@ public class CurrencyConverter{
             }
         }
 
-        JOptionPane.showMessageDialog(null, "Mata uang tujuan tidak ditemukan.");
+        JOptionPane.showMessageDialog(null, "Currency not found");
     }
 }
