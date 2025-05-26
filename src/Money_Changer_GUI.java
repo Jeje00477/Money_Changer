@@ -46,6 +46,7 @@ private CurrencyConverter CC;
         jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Money Changer");
@@ -63,6 +64,7 @@ private CurrencyConverter CC;
         });
 
         jButton1.setText("Convert");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -70,6 +72,7 @@ private CurrencyConverter CC;
         });
 
         txtto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "YEN", "RINGGIT", "EURO" }));
+        txtto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttoActionPerformed(evt);
@@ -77,6 +80,7 @@ private CurrencyConverter CC;
         });
 
         txtfrom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IDR" }));
+        txtfrom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtfrom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtfromActionPerformed(evt);
@@ -84,6 +88,7 @@ private CurrencyConverter CC;
         });
 
         jButton2.setText("Admin");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

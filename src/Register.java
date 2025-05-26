@@ -95,7 +95,7 @@ public class Register extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MASUK");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
         jLabel2.setText("Masukan datamu");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -111,6 +111,7 @@ public class Register extends javax.swing.JFrame {
         jLabel6.setText("Name");
 
         jButton_Register.setText("Register");
+        jButton_Register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_Register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_RegisterActionPerformed(evt);
@@ -181,7 +182,7 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(35, 35, 35)
                 .addComponent(jButton_Register)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,13 +206,23 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel_CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_CloseMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel_CloseMouseClicked
+
+    private void jLabel_MinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MinimizeMouseClicked
+        // TODO add your handling code here:
+        this.setState(1);
+    }//GEN-LAST:event_jLabel_MinimizeMouseClicked
+
     private void jButton_RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegisterActionPerformed
         // TODO add your handling code here:
         if(jPasswordField3.getText().equals(jPasswordField2.getText())){
             name = jTextField3.getText();
             username = jTextField2.getText();
             password = jPasswordField2.getText();
-            
+
             Login lg = new Login ();
             lg.setVisible(true);
             lg.pack();
@@ -223,16 +234,6 @@ public class Register extends javax.swing.JFrame {
             jLabel7.setText("Passwordnya tidak sama teman!");
         }
     }//GEN-LAST:event_jButton_RegisterActionPerformed
-
-    private void jLabel_CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_CloseMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jLabel_CloseMouseClicked
-
-    private void jLabel_MinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MinimizeMouseClicked
-        // TODO add your handling code here:
-        this.setState(1);
-    }//GEN-LAST:event_jLabel_MinimizeMouseClicked
 
     /**
      * @param args the command line arguments
