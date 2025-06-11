@@ -11,10 +11,7 @@ import Services.ExchangeRateService;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-/**
- *
- * @author jeje
- */
+
 public class AdminForm extends javax.swing.JFrame {
 private CurrencyService Cservice;
 private ExchangeRateService Eservice;
