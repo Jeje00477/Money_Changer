@@ -73,7 +73,6 @@ private ExchangeRateService Eservice;
         FromTextField.setBackground(new java.awt.Color(102, 102, 102));
         FromTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         FromTextField.setForeground(new java.awt.Color(255, 255, 255));
-        FromTextField.setText("e.g. PESO");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,7 +81,6 @@ private ExchangeRateService Eservice;
         RateTextField.setBackground(new java.awt.Color(102, 102, 102));
         RateTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         RateTextField.setForeground(new java.awt.Color(255, 255, 255));
-        RateTextField.setText("e.g. 25000");
 
         RemoveButton.setBackground(new java.awt.Color(255, 102, 0));
         RemoveButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -144,7 +142,6 @@ private ExchangeRateService Eservice;
         ToTextField.setBackground(new java.awt.Color(102, 102, 102));
         ToTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         ToTextField.setForeground(new java.awt.Color(255, 255, 255));
-        ToTextField.setText("e.g. IDR");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,7 +150,6 @@ private ExchangeRateService Eservice;
         MoneyTextField.setBackground(new java.awt.Color(102, 102, 102));
         MoneyTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         MoneyTextField.setForeground(new java.awt.Color(255, 255, 255));
-        MoneyTextField.setText("e.g. PESO");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
