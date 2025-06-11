@@ -297,8 +297,8 @@ private ExchangeRateService Eservice;
         // TODO add your handling code here:
         double rate = Double.parseDouble(RateTextField.getText());
         if (MoneyTextField.getText() != null && FromTextField.getText() != null && NameTextField.getText()!=null && RateTextField.getText()!=null && ToTextField.getText()!=null){
+            Cservice.Add(MoneyTextField.getText(),NameTextField.getText());
             if (Eservice.add(FromTextField.getText(), ToTextField.getText(), rate)){
-                Cservice.Add(MoneyTextField.getText(),NameTextField.getText());
                 JOptionPane.showMessageDialog(this, "Added");
             }else{
                 JOptionPane.showMessageDialog(this, "Try Again!");

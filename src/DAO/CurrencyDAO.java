@@ -43,7 +43,7 @@ public class CurrencyDAO {
             ps.setString(2, cur.getName());
             ps.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            
         }
     }
     
