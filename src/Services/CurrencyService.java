@@ -17,10 +17,13 @@ public class CurrencyService {
         DAO = new CurrencyDAO();
     }
     
-    public boolean Add(String code, String name){
-        Currency cur = new Currency(code,name);
-        return DAO.addCurrency(cur);
+    public boolean Add(String code, String name) {
+    if (!DAO.currencyExists(code)) {
+        return DAO.addCurrency(new Currency(code, name));
+    } else {
+        return true;
     }
+}
     
     public boolean Remove(String code){
         return DAO.removeCurrency(new Currency(code));
