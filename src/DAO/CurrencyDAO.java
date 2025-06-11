@@ -35,15 +35,15 @@ public class CurrencyDAO {
         return code;
     }
     
-    public void addCurrency(Currency cur){
+    public boolean addCurrency(Currency cur){
         try {
             String sql = "INSERT INTO Currencies (code, name) VALUES (?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, cur.getCode());
             ps.setString(2, cur.getName());
-            ps.executeUpdate();
+            return ps.executeUpdate()>0;
         } catch (SQLException e) {
-            
+            return false;
         }
     }
     
@@ -54,6 +54,19 @@ public class CurrencyDAO {
             ps.setString(1, cur.getCode());
             return ps.executeUpdate()>0;
         } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    public boolean currencyExists(String code) {
+        try {
+            String sql = "SELECT 1 FROM Currencies WHERE code = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, code);
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }

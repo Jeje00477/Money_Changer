@@ -296,16 +296,20 @@ private ExchangeRateService Eservice;
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here:
         double rate = Double.parseDouble(RateTextField.getText());
-        if (MoneyTextField.getText() != null && FromTextField.getText() != null && NameTextField.getText()!=null && RateTextField.getText()!=null && ToTextField.getText()!=null){
-            Cservice.Add(MoneyTextField.getText(),NameTextField.getText());
-            if (Eservice.add(FromTextField.getText(), ToTextField.getText(), rate)){
-                JOptionPane.showMessageDialog(this, "Added");
-            }else{
-                JOptionPane.showMessageDialog(this, "Try Again!");
+        boolean added = Cservice.Add(MoneyTextField.getText(), NameTextField.getText());
+            if (added) {
+                if (Cservice.exists(FromTextField.getText()) && Cservice.exists(ToTextField.getText())) {
+                    if (Eservice.add(FromTextField.getText(), ToTextField.getText(), rate)) {
+                        JOptionPane.showMessageDialog(this, "Added");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Try Again!");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Currency not found in database!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Currency insert failed!");
             }
-        }else{
-            JOptionPane.showMessageDialog(this, "Insert The Blank First");
-        }
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void RecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecordButtonActionPerformed
